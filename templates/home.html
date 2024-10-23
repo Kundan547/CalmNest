@@ -1,32 +1,19 @@
-<!-- /app/templates/home.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speech-to-Text App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-
+    <title>Your App</title>
 </head>
 <body>
     <div class="container">
-        <h1>Speech-to-Text PDF Generator</h1>
-        <p>Click the button below and start talking. We'll transcribe your speech in real-time.</p>
-
-        <button id="start-record-btn" onclick="startRecording()">Start Recording</button>
-        <button id="stop-record-btn" onclick="stopRecording()" disabled>Stop Recording</button>
-
+        <h1>Speech-to-Text App</h1>
+        <p>Click the button to start speaking!</p>
+        <button id="start-recording" disabled>Start Recording</button>
         <div id="transcription-result">
-            <h3>Transcription:</h3>
-            <p id="transcript-text"></p>
+            <i>Transcription will appear here...</i>
         </div>
-
-        <form action="/generate_pdf" method="POST">
-            <textarea id="transcription-input" name="transcription" hidden></textarea>
-            <button type="submit" id="generate-pdf-btn" disabled>Generate PDF</button>
-        </form>
     </div>
-
-    <script src="{{ url_for('static', filename='js/recorder.js') }}"></script>
 </body>
 </html>
