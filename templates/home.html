@@ -3,31 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speech-to-Text App</title>
-    <!-- Correctly link to the styles.css file -->
+    <title>Speech-to-PDF App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Speech-to-Text PDF Generator</h1>
-        <p>Click the button below and start talking. We'll transcribe your speech in real-time.</p>
-
-        <button id="start-record-btn" onclick="startRecording()">Start Recording</button>
-        <button id="stop-record-btn" onclick="stopRecording()" disabled>Stop Recording</button>
-
-        <div id="transcription-result">
-            <h3>Transcription:</h3>
-            <p id="transcript-text"></p>
+    <header>
+        <h1>Speech-to-PDF App</h1>
+    </header>
+    <main>
+        <div class="container">
+            <p>Click the button to start speaking and convert your speech to text!</p>
+            <button id="start-recording" class="btn">Start Recording</button>
+            <div id="transcription-result" class="result-box">
+                <i>Transcription will appear here...</i>
+            </div>
         </div>
-
-        <form action="/generate_pdf" method="POST">
-            <textarea id="transcription-input" name="transcription" hidden></textarea>
-            <button type="submit" id="generate-pdf-btn" disabled>Generate PDF</button>
-        </form>
-    </div>
-
-    <!-- Correctly link to the recorder.js file -->
-    <script src="{{ url_for('static', filename='js/recorder.js') }}"></script>
-
+    </main>
+    <footer>
+        <p>&copy; 2024 Speech-to-PDF App. All rights reserved.</p>
+    </footer>
 </body>
 </html>
