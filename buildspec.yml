@@ -1,4 +1,4 @@
-version: 0.2
+version: 0.2     
 
 phases:
   install:
@@ -12,7 +12,7 @@ phases:
     commands:
       - echo Pre-build stage...
       - echo Checking for any code issues...
-      - pylint app.py
+      - python3 app.py
 
   build:
     commands:
@@ -24,10 +24,9 @@ phases:
   post_build:
     commands:
       - echo Build completed successfully!
-      - echo Preparing to push artifacts...
-      - zip -r deployment-package.zip .
-      - aws s3 cp deployment-package.zip s3://your-s3-bucket-name/
+      - echo No artifacts to store or upload.
 
 artifacts:
   files:
-    - deployment-package.zip
+    - '**/*'  # If you want to include all files in the build environment, but no upload to S3
+
