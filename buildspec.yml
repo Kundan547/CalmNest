@@ -1,32 +1,32 @@
-version: 0.2     
+version: 0.2
 
 phases:
   install:
     runtime-versions:
       python: 3.x
     commands:
-      - echo Installing dependencies...
+      - echo "Installing dependencies..."
       - pip install -r requirements.txt
 
   pre_build:
     commands:
-      - echo Pre-build stage...
-      - echo Checking for any code issues...
-      - python3 app.py
+      - echo "Pre-build stage..."
+      - echo "Checking for any code issues..."
+      - python3 app.py  # Ensure this doesn't run as a standalone app
 
   build:
     commands:
-      - echo Build started on `date`
-      - echo Running tests (if any)...
+      - echo "Build started on `date`"
+      - echo "Running tests (if any)..."
       # Include any test commands here (optional)
-      - echo Build completed on `date`
+      - echo "Build completed on `date`"
 
   post_build:
     commands:
-      - echo Build completed successfully!
-      - echo No artifacts to store or upload.
+      - echo "Build completed successfully!"
+      - echo "No artifacts to store or upload."
 
 artifacts:
   files:
-    - '**/*'  # If you want to include all files in the build environment, but no upload to S3
+    - '**/*'  # Adjust if you want to define specific files
 
