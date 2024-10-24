@@ -2,19 +2,23 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/CalmNest
+    destination: /home/ec2-user/CalmNest  # Make sure this is where you want to deploy
 
 hooks:
   BeforeInstall:
     - location: scripts/before_install.sh
       runas: root
+      timeout: 300  # Optional: specify a timeout for the script
   AfterInstall:
     - location: scripts/after_install.sh
       runas: root
+      timeout: 300  # Optional: specify a timeout for the script
   ApplicationStart:
     - location: scripts/start_server.sh
       runas: root
+      timeout: 300  # Optional: specify a timeout for the script
   ValidateService:
     - location: scripts/validate_service.sh
       runas: root
+      timeout: 300  # Optional: specify a timeout for the script
 
