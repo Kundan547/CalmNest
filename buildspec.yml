@@ -11,8 +11,8 @@ phases:
   pre_build:
     commands:
       - echo "Pre-build stage..."
-      - echo "Checking for any code issues..."
-      - python3 app.py  # Ensure this doesn't run as a standalone app
+      - echo "Checking for syntax issues in app.py..."
+      - python3 -m py_compile app.py || { echo "Syntax error in app.py"; exit 1; }
 
   build:
     commands:
@@ -25,8 +25,4 @@ phases:
     commands:
       - echo "Build completed successfully!"
       - echo "No artifacts to store or upload."
-
-artifacts:
-  files:
-    - '**/*'  # Adjust if you want to define specific files
 
