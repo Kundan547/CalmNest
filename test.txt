@@ -1,1 +1,0 @@
-In upcomig times i'll add dockerfile and docker-compose file and also try to deploy it on ec2 instance in aws.
