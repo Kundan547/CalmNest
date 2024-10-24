@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/CalmNest  # Make sure this is where you want to deploy
+    destination: /home/ubuntu/CalmNest  # Make sure this is where you want to deploy
 
 hooks:
   BeforeInstall:
