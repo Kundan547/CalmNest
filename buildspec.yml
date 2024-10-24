@@ -5,6 +5,7 @@ phases:
     runtime-versions:
       python: 3.x
     commands:
+<<<<<<< HEAD
       - echo Installing system dependencies...
       - sudo apt-get update -y
       - sudo apt-get install -y python3-pip
@@ -12,10 +13,14 @@ phases:
       - virtualenv venv
       - source venv/bin/activate
       - echo Installing Python dependencies...
+=======
+      - echo "Installing dependencies..."
+>>>>>>> 12873b4d42bd5d1389b520fcd1f0aa3ad535ea07
       - pip install -r requirements.txt
 
   pre_build:
     commands:
+<<<<<<< HEAD
       - echo Pre-build step...
       - python -m unittest discover  # Optional: Run tests before the build
 
@@ -27,3 +32,21 @@ phases:
   post_build:
     commands:
       - echo Build successful!
+=======
+      - echo "Pre-build stage..."
+      - echo "Checking for syntax issues in app.py..."
+      - python3 -m py_compile app.py || { echo "Syntax error in app.py"; exit 1; }
+
+  build:
+    commands:
+      - echo "Build started on `date`"
+      - echo "Running tests (if any)..."
+      # Include any test commands here (optional)
+      - echo "Build completed on `date`"
+
+  post_build:
+    commands:
+      - echo "Build completed successfully!"
+      - echo "No artifacts to store or upload."
+
+>>>>>>> 12873b4d42bd5d1389b520fcd1f0aa3ad535ea07

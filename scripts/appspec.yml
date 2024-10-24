@@ -3,18 +3,30 @@ os: linux
 
 files:
   - source: /
+<<<<<<< HEAD
     destination: /home/ubuntu/CalmNest
+=======
+    destination: /home/ubuntu/CalmNest  # Make sure this is where you want to deploy
+>>>>>>> 12873b4d42bd5d1389b520fcd1f0aa3ad535ea07
 
 hooks:
   BeforeInstall:
     - location: scripts/before_install.sh
       runas: root
+      timeout: 300  # Optional: specify a timeout for the script
   AfterInstall:
     - location: scripts/after_install.sh
       runas: root
+      timeout: 300  # Optional: specify a timeout for the script
   ApplicationStart:
     - location: scripts/start_server.sh
       runas: root
+      timeout: 300  # Optional: specify a timeout for the script
   ValidateService:
     - location: scripts/validate_service.sh
       runas: root
+<<<<<<< HEAD
+=======
+      timeout: 300  # Optional: specify a timeout for the script
+
+>>>>>>> 12873b4d42bd5d1389b520fcd1f0aa3ad535ea07
