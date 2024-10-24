@@ -5,29 +5,25 @@ phases:
     runtime-versions:
       python: 3.x
     commands:
-      - echo Installing dependencies...
+      - echo Installing system dependencies...
+      - sudo apt-get update -y
+      - sudo apt-get install -y python3-pip
+      - pip3 install virtualenv
+      - virtualenv venv
+      - source venv/bin/activate
+      - echo Installing Python dependencies...
       - pip install -r requirements.txt
 
   pre_build:
     commands:
-      - echo Pre-build stage...
-      - echo Checking for any code issues...
-      - pylint app.py
+      - echo Pre-build step...
+      - python -m unittest discover  # Optional: Run tests before the build
 
   build:
     commands:
-      - echo Build started on `date`
-      - echo Running tests (if any)...
-      # Include any test commands here (optional)
-      - echo Build completed on `date`
+      - echo Build step...
+      - echo Build completed!
 
   post_build:
     commands:
-      - echo Build completed successfully!
-      - echo Preparing to push artifacts...
-      - zip -r deployment-package.zip .
-      - aws s3 cp deployment-package.zip s3://your-s3-bucket-name/
-
-artifacts:
-  files:
-    - deployment-package.zip
+      - echo Build successful!

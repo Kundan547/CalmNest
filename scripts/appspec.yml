@@ -1,8 +1,9 @@
 version: 0.0
 os: linux
+
 files:
   - source: /
-    destination: /home/ec2-user/CalmNest
+    destination: /home/ubuntu/CalmNest
 
 hooks:
   BeforeInstall:
@@ -17,4 +18,3 @@ hooks:
   ValidateService:
     - location: scripts/validate_service.sh
       runas: root
-
